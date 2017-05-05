@@ -1,7 +1,7 @@
 <h1>新增書籍</h1>
 
   <%= form_for(@book) do |f| %>
-    <%= f.label :name, "姓名" %>
+    <%= f.label :name, "書名" %>
     <%= f.text_field :name %> <br />
 
     <%= f.label :price, "售價" %>
@@ -17,4 +17,4 @@
   <% end %>
 
   <br />
-  <%= link_to '回書籍列表', library_path %>
+  <%= link_to '回書籍列表', books_path %>
