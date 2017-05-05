@@ -47,6 +47,10 @@ class BooksController < ActionController::Base
         render :edit
       end
   end
+  def destroy
+    @book.destroy
+    redirect_to books_path, notice:"deleted!"
+  end
 
 
 end
