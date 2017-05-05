@@ -51,7 +51,7 @@ class BooksController < ActionController::Base
  def destroy
       @book = Book.find_by(id: params[:id])
       @book.destroy if @book
-      redirect_to candidates_path, notice: "候選人資料已刪除!"
+      redirect_to candidates_path, notice: "資料已刪除!"
     end
 
 end
