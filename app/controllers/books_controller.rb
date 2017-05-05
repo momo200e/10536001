@@ -37,15 +37,15 @@ class BooksController < ActionController::Base
   end
   def update
  
-    if @book.update(book_params)
-      redirect_to books_path, notice:"update!"
-    else
-    render 'edit'
-    end
-  end
-  def destroy
-    @book.destroy
-    redirect_to books_path, notice:"deleted!"
+    @book = Book.find_by(id: params[:id])
+
+      if @book.update(book_params)
+        # 成功
+        redirect_to books_path, notice: "資料更新成功!"
+      else
+        # 失敗
+        render :edit
+      end
   end
 
 
