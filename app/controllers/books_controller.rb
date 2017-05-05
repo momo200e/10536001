@@ -18,7 +18,11 @@ class BooksController < ActionController::Base
 	 def show
    @book=Book.find_by(id: params[:id])
   end
-
+	def find_book
+  @candidate = Candidate.find_by(id: params[:id])
+  redirect_to candidates_path, notice:"no data!" if @candidate.nil?
+  end
+  
   def book_params
     params.require("book").permit(:name,:price,:author,:introduction)
   end
