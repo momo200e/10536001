@@ -26,4 +26,27 @@ class BooksController < ActionController::Base
   def book_params
     params.require("book").permit(:name,:price,:author,:introduction)
   end
+	
+ 
+ 
+  
+  
+   
+  def edit
+		@book = Book.find_by(id: params[:id])
+  end
+  def update
+ 
+    if @book.update(book_params)
+      redirect_to books_path, notice:"update!"
+    else
+    render 'edit'
+    end
+  end
+  def destroy
+    @book.destroy
+    redirect_to books_path, notice:"deleted!"
+  end
+
+
 end
